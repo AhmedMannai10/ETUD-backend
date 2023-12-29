@@ -30,6 +30,7 @@ public class User implements UserDetails {
     private Integer id;
     private String firstName;
     private String lastName;
+
     @Indexed(unique = true)
     private String email;
     private String password;
