@@ -1,6 +1,7 @@
 package com.drghost.etud.auth.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,7 +32,9 @@ public class User implements UserDetails {
     private String firstName;
     private String lastName;
 
+
     @Indexed(unique = true)
+    @NotBlank(message = "email is mandatory")
     private String email;
     private String password;
 
