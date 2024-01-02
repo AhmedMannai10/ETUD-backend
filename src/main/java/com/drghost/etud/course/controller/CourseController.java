@@ -1,6 +1,7 @@
 package com.drghost.etud.course.controller;
 
 import com.drghost.etud.course.entities.Course;
+import com.drghost.etud.course.entities.Lesson;
 import com.drghost.etud.course.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,9 @@ public class CourseController {
 
     @PostMapping("/")
     public ResponseEntity<String> createCourse(@RequestBody Course course){
+
         try{
+            System.out.println();
             courseService.createCourse(course);
             return ResponseEntity.ok("Course Created Successfully");
         }catch (IllegalStateException ex){

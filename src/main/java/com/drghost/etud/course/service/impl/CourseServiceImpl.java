@@ -1,6 +1,7 @@
 package com.drghost.etud.course.service.impl;
 
 import com.drghost.etud.course.entities.Course;
+import com.drghost.etud.course.entities.Lesson;
 import com.drghost.etud.course.repository.CourseRepository;
 import com.drghost.etud.course.service.CourseService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public void createCourse(Course newCourse) {
-        courseRepository.save(newCourse);
+    public void  createCourse(Course newCourse) {
+
+        // manually create dynamic
+         courseRepository.save(newCourse);
     }
+
+
 }

@@ -7,7 +7,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
 
 @Data
 @Document(collection = "_courses")
@@ -17,20 +20,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Course {
     @Id
     @Transient
-    private Integer  id;
+    private Integer id;
 
     @NotBlank
     private String title;
     @NotBlank
     private String description;
     private String topics;
-    // TODO: Add course teacher
-    // private Teacher teacher
-    private Chapter[]  chapters;
-    // Each Chapter has a title and
 
-    // add reviews;
-    //
+    private List<Lesson> lessons;
 
+
+    public void addLesson(Lesson lesson){
+        if(this.lessons.contains(lesson)){
+            return;
+        }else{
+            lessons.add(lesson);
+        }
+
+    }
 
 }
